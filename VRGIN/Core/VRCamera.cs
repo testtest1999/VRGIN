@@ -272,7 +272,7 @@ namespace VRGIN.Core
                     if (skybox != null)
                     {
                         var vrSkybox = targetCamera.gameObject.GetComponent<Skybox>();
-                        if (vrSkybox == null) vrSkybox = vrSkybox.gameObject.AddComponent<Skybox>();
+                        if (vrSkybox == null) vrSkybox = targetCamera.gameObject.AddComponent<Skybox>();
 
                         vrSkybox.material = skybox.material;
                     }
