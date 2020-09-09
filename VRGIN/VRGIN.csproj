@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22788A2C-7695-4A6A-A9F0-115AB9A05FD4}</ProjectGuid>
+    <ProjectGuid>{FB60ECAA-5FDB-4BC2-982B-44B72AE57B45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VRGIN</RootNamespace>
@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;UNITY_5_3</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;UNITY_5_6 UNITY_5_3</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -211,8 +211,6 @@
     <Compile Include="SteamVR\Scripts\SteamVR_Skybox.cs" />
     <Compile Include="SteamVR\Scripts\SteamVR_SphericalProjection.cs" />
     <Compile Include="SteamVR\Scripts\SteamVR_Stats.cs" />
-    <Compile Include="SteamVR\Scripts\SteamVR_Status.cs" />
-    <Compile Include="SteamVR\Scripts\SteamVR_StatusText.cs" />
     <Compile Include="SteamVR\Scripts\SteamVR_TestController.cs" />
     <Compile Include="SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="SteamVR\Scripts\SteamVR_UpdatePoses.cs" />

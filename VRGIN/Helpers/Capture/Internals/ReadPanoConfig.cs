@@ -87,7 +87,6 @@ namespace CapturePanorama
                     Debug.LogError("Unrecognized key in line in CapturePanorama.ini: " + line);
             }
         }
-
         private void WriteConfig(string path, CapturePanorama pano)
         {
             using (var writer = new StreamWriter(path))

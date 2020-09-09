@@ -129,11 +129,11 @@ namespace VRGIN.Core
 
         //[XmlElement("VRGIN.Shortcuts")]
         [XmlComment("Shortcuts used by VRGIN. Refer to https://docs.unity3d.com/ScriptReference/KeyCode.html for a list of available keys.")]
-        public virtual Shortcuts Shortcuts { get { return _Shortcuts; } protected set { _Shortcuts = value; } }
+        public virtual Shortcuts Shortcuts { get { return _Shortcuts; }  set { _Shortcuts = value; } }
         private Shortcuts _Shortcuts = new Shortcuts();
 
 
-        public CaptureConfig Capture { get { return _CaptureConfig; } protected set { _CaptureConfig = value; } }
+        public CaptureConfig Capture { get { return _CaptureConfig; }  set { _CaptureConfig = value; } }
         private CaptureConfig _CaptureConfig = new CaptureConfig();
 
         public event EventHandler<PropertyChangedEventArgs> PropertyChanged = delegate { };
@@ -376,10 +376,10 @@ namespace VRGIN.Core
     public class XmlKeyStroke
     {
         [XmlAttribute("on")]
-        public KeyMode CheckMode { get; private set; }
+        public KeyMode CheckMode { get;  set; }
         
         [XmlText]
-        public string Keys { get; private set; }
+        public string Keys { get; set; }
 
         public XmlKeyStroke()
         {

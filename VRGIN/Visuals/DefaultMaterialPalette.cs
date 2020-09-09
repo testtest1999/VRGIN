@@ -70,7 +70,9 @@ namespace VRGIN.Visuals
 
         private Material CreateSprite()
         {
-            return Resources.GetBuiltinResource<Material>("Sprites-Default.mat");
+            //return Resources.GetBuiltinResource<Material>("Sprites-Default.mat");
+            Material m =  new Material(Shader.Find("Sprites/Default"));
+            return m;
         }
         public Material Sprite
         {

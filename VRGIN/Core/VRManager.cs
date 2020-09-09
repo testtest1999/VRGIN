@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using VRGIN.Controls.Speech;
 using VRGIN.Modes;
 using WindowsInput;
+#if UNITY_2017_2_OR_NEWER
+    using UnityEngine.XR;
+#else
+using XRSettings = UnityEngine.VR.VRSettings;
+using XRDevice = UnityEngine.VR.VRDevice;
+#endif
 
 namespace VRGIN.Core
 {
@@ -100,6 +107,28 @@ namespace VRGIN.Core
             return _Instance;
         }
 
+        //public IEnumerator BootVR<I, M>(IVRManagerContext context) where I : GameInterpreter where M : ControlMode
+        public static IEnumerator BootVR(String newDevice)
+        {
+
+            // After Unity 5.5 need init UnityEngine.VR.VRSettings first.
+#if UNITY_5_6
+            bool vrMode = newDevice != "None";
+            XRSettings.LoadDeviceByName(newDevice);
+            yield return null;
+
+            XRSettings.enabled = vrMode;
+            yield return null;
+
+            while (XRSettings.loadedDeviceName != newDevice || XRSettings.enabled != vrMode)
+            {
+                yield return null;
+            }
+#endif
+            yield return null;
+                
+        }
+
         /// <summary>
         /// Sets the mode the game works in.
         /// 
@@ -137,6 +166,7 @@ namespace VRGIN.Core
 
         protected override void OnAwake()
         {
+            // SteamvR bootstrap
             var trackingSystem = SteamVR.instance.hmd_TrackingSystemName;
             VRLog.Info("------------------------------------");
             VRLog.Info(" Booting VR [{0}]", trackingSystem);
@@ -153,6 +183,9 @@ namespace VRGIN.Core
             SteamVR_Render.instance.helpSeconds = 0;
 #endif
         }
+
+
+
         protected override void OnStart()
         {
         }
@@ -163,6 +196,7 @@ namespace VRGIN.Core
             //StartCoroutine(Load());
         }
 
+        
         protected override void OnUpdate()
         {
             foreach(var camera in Camera.allCameras.Except(_CheckedCameras).ToList())

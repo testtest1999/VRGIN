@@ -26,13 +26,19 @@ namespace VRGIN.Helpers
 
         public static Shader GetShader(string name)
         {
-            return LoadFromAssetBundle<Shader>(
+            Shader ret;
+            ret = LoadFromAssetBundle<Shader>(
 #if UNITY_4_5
                 U46.U46.Resource.steamvr,
 #else
                 ResourceManager.SteamVR,
 #endif
                 name);
+
+            if (ret == null)
+                ret = Shader.Find(name);
+
+            return ret;
         }
 
 

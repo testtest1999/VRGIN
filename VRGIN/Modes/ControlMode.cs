@@ -106,7 +106,12 @@ namespace VRGIN.Modes
 
         protected virtual void OnEnable()
         {
+#if UNITY_4_5 || STEAMVR_LEGACY
             SteamVR_Utils.Event.Listen("device_connected", OnDeviceConnected);
+#else
+            SteamVR_Events.DeviceConnected.Listen(OnDeviceConnected);
+#endif		
+      
             VRLog.Info("Enabled {0}", GetType().Name);
         }
 
@@ -114,7 +119,11 @@ namespace VRGIN.Modes
         {
             VRLog.Info("Disabled {0}", GetType().Name);
 
+#if UNITY_4_5 || STEAMVR_LEGACY
             SteamVR_Utils.Event.Listen("device_connected", OnDeviceConnected);
+#else
+			SteamVR_Events.DeviceConnected.Remove(OnDeviceConnected);
+#endif
         }
 
         static int cnter = 0;
@@ -510,13 +519,19 @@ namespace VRGIN.Modes
                 shortcut.Evaluate();
             }
         }
-
+#if (UNITY_4_5 || STEAMVR_LEGACY)
         private void OnDeviceConnected(object[] args)
+		{ 
+			int idx = (int)args[0]; 
+			bool connected = (bool)args[1];
+#else
+        private void OnDeviceConnected(int idx, bool connected)
         {
+#endif
+
             if (!_ControllerFound)
             {
-                var index = (uint)(int)args[0];
-                var connected = (bool)args[1];
+				uint index = (uint)idx;
                 VRLog.Info("Device connected: {0}", index);
 
                 if (connected && index > OpenVR.k_unTrackedDeviceIndex_Hmd)

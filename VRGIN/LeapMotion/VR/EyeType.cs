@@ -3,6 +3,12 @@
 using UnityEditor;
 #endif
 using System;
+#if UNITY_2017_2_OR_NEWER
+    using UnityEngine.XR;
+#else
+using XRSettings = UnityEngine.VR.VRSettings;
+using XRDevice = UnityEngine.VR.VRDevice;
+#endif
 
 namespace Leap.Unity {
   [System.Serializable]

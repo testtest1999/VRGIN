@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.VR;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_2017_2_OR_NEWER
+    using UnityEngine.XR;
+#else
+using UnityEngine.VR;
+using XRSettings = UnityEngine.VR.VRSettings;
+using XRDevice = UnityEngine.VR.VRDevice;
+using XRNode = UnityEngine.VR.VRNode;
+#endif
 
 namespace Leap.Unity {
   /// <summary>
@@ -278,7 +285,7 @@ namespace Leap.Unity {
     }
 
     protected void Update() {
-      if (Input.GetKeyDown(recenter) && VRSettings.enabled && VRDevice.isPresent) {
+      if (Input.GetKeyDown(recenter) && XRSettings.enabled && XRDevice.isPresent) {
         InputTracking.Recenter();
       }
 
@@ -296,24 +303,24 @@ namespace Leap.Unity {
     }
 
     protected void LateUpdate() {
-      if (VRSettings.enabled) {
-        updateTemporalWarping(InputTracking.GetLocalPosition(VRNode.CenterEye),
-                              InputTracking.GetLocalRotation(VRNode.CenterEye));
+      if (XRSettings.enabled) {
+        updateTemporalWarping(InputTracking.GetLocalPosition(XRNode.CenterEye),
+                              InputTracking.GetLocalRotation(XRNode.CenterEye));
       }
     }
 
     private void onValidCameraParams(LeapVRCameraControl.CameraParams cameraParams) {
       _projectionMatrix = cameraParams.ProjectionMatrix;
 
-      if (VRSettings.enabled) {
+      if (XRSettings.enabled) {
         if (provider != null) {
-          updateHistory(InputTracking.GetLocalPosition(VRNode.CenterEye),
-                        InputTracking.GetLocalRotation(VRNode.CenterEye));
+          updateHistory(InputTracking.GetLocalPosition(XRNode.CenterEye),
+                        InputTracking.GetLocalRotation(XRNode.CenterEye));
         }
 
         if (syncMode == SyncMode.LOW_LATENCY) {
-          updateTemporalWarping(InputTracking.GetLocalPosition(VRNode.CenterEye),
-                                InputTracking.GetLocalRotation(VRNode.CenterEye));
+          updateTemporalWarping(InputTracking.GetLocalPosition(XRNode.CenterEye),
+                                InputTracking.GetLocalRotation(XRNode.CenterEye));
         }
       }
     }

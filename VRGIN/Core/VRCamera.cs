@@ -33,6 +33,8 @@ namespace VRGIN.Core
     {
         MonoBehaviour[] _CameraEffects = new MonoBehaviour[0];
         Camera _Camera;
+        public RenderTexture dumpTexture =  new RenderTexture(256, 256, 24);
+  
 
         protected override void OnStart()
         {
@@ -45,34 +47,39 @@ namespace VRGIN.Core
             _Camera.depth = -9999;
             _Camera.useOcclusionCulling = false;
             _Camera.clearFlags = CameraClearFlags.Nothing;
+
+            //_Camera.targetTexture = dumpTexture;
         }
 
 
         public void OnPreCull()
         {
-            _Camera.enabled = false;
+            //_Camera.targetTexture = dumpTexture;
+            //_Camera.enabled = false;
             //VRLog.Info("Disable");
         }
 
         public void OnGUI()
         {
+            _Camera.targetTexture = dumpTexture;
+
             if (Event.current.type == EventType.Repaint)
             {
                 //VRLog.Info("Enable");
 
-                _Camera.enabled = true;
+               // _Camera.enabled = true;
             }
         }
-        //protected override void OnUpdate()
-        //{
-        //    base.OnUpdate();
+        public  void OnUpdate()
+        {
+            //    base.OnUpdate();
 
-        //    foreach(var fx in _CameraEffects.Where(fx => fx.enabled))
-        //    {
-        //        fx.enabled = false;
-        //        VRLog.Info("Disabled camera effect: {0}", fx.GetType().Name);
-        //    }
-        //}
+            //    foreach(var fx in _CameraEffects.Where(fx => fx.enabled))
+            //    {
+            //        fx.enabled = false;
+            //        VRLog.Info("Disabled camera effect: {0}", fx.GetType().Name);
+            //    }
+        }
     }
 
     public class CameraSlave : ProtectedBehaviour
@@ -158,14 +165,24 @@ namespace VRGIN.Core
         {
             get
             {
-                return _Blueprint && _Blueprint.isActiveAndEnabled ? _Blueprint : Slaves.Select(s => s.Camera).FirstOrDefault(c => !VR.GUI.Owns(c));
+                //return _Blueprint || _Blueprint.isActiveAndEnabled ? _Blueprint : Slaves.Select(s => s.Camera).FirstOrDefault(c => !VR.GUI.Owns(c) && );
+                if (_Blueprint && _Blueprint.isActiveAndEnabled)
+                {
+                    return _Blueprint;
+                }else
+                {
+                    // var cs = Slaves.Select(s => s.Camera).Where(c => !VR.GUI.Owns(c));
+                    return Camera.main;
+                }
+               
             }
         }
-        private Camera _Blueprint { get; set; }
+        public Camera _Blueprint { get; set; }
         private IList<CameraSlave> Slaves = new List<CameraSlave>();
         private const float MIN_FAR_CLIP_PLANE = 10f;
 
-        public bool HasValidBlueprint { get { return Slaves.Count > 0; } }
+        //public bool HasValidBlueprint { get { return Slaves.Count > 0; } }
+        public bool HasValidBlueprint { get { return true; } }
 
         public Transform Origin
         {
@@ -183,7 +200,7 @@ namespace VRGIN.Core
             }
         }
 
-        private Camera _Camera;
+        public Camera _Camera;
 
         /// <summary>
         /// Called when the main camera has been initialized.
@@ -264,7 +281,7 @@ namespace VRGIN.Core
                     targetCamera.layerCullDistances = Blueprint.layerCullDistances;
                     targetCamera.layerCullSpherical = Blueprint.layerCullSpherical;
                     targetCamera.useOcclusionCulling = Blueprint.useOcclusionCulling;
-                    targetCamera.hdr = false;
+                    //targetCamera.hdr = false;
 
                     targetCamera.backgroundColor = Blueprint.backgroundColor;
 
@@ -272,7 +289,7 @@ namespace VRGIN.Core
                     if (skybox != null)
                     {
                         var vrSkybox = targetCamera.gameObject.GetComponent<Skybox>();
-                        if (vrSkybox == null) vrSkybox = vrSkybox.gameObject.AddComponent<Skybox>();
+                        if (vrSkybox == null) vrSkybox = targetCamera.gameObject.AddComponent<Skybox>();
 
                         vrSkybox.material = skybox.material;
                     }

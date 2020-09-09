@@ -73,7 +73,8 @@ namespace VRGIN.Modes
             base.OnUpdate();
 
             // Move origin
-            if (VR.Camera.HasValidBlueprint && VR.Camera.Blueprint)
+            //if (VR.Camera.HasValidBlueprint && VR.Camera.Blueprint)
+            if (VR.Camera.Blueprint)
             {
                 if (LockTarget != null && LockTarget.IsValid)
                 {

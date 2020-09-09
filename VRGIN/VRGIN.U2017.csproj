@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1951E33F-CC3A-467B-B350-BB0911D22B9F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VRGIN</RootNamespace>
+    <AssemblyName>VRGIN_U2007</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_5_6_7;UNITY_5_6;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;UNITY_5_6</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LeapCSharp.NET3.5, Version=3.1.2.0, Culture=neutral, PublicKeyToken=6e1b1368e71eba9b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\LeapCSharp.NET3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="SpeechTransport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Plugins\VR\SpeechTransport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WebModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>..\Libs\Unity 2007\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsInput">
+      <HintPath>..\Libs\WindowsInput.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Controller.cs" />
+    <Compile Include="Controls\Handlers\BodyRumbleHandler.cs" />
+    <Compile Include="Controls\Handlers\MenuHandler.cs" />
+    <Compile Include="Controls\HelpText.cs" />
+    <Compile Include="Controls\LeapMotion\LeapMenuHandler.cs" />
+    <Compile Include="Controls\LeapMotion\PinchController.cs" />
+    <Compile Include="Controls\LeapMotion\WarpHandler.cs" />
+    <Compile Include="Controls\LeftController.cs" />
+    <Compile Include="Controls\RumbleManager.cs" />
+    <Compile Include="Controls\Speech\DictionaryReader.cs" />
+    <Compile Include="Controls\Speech\SpeechManager.cs" />
+    <Compile Include="Controls\Speech\VoiceCommand.cs" />
+    <Compile Include="Controls\Speech\VoiceShortcut.cs" />
+    <Compile Include="Controls\Tools\MenuTool.cs" />
+    <Compile Include="Controls\RightController.cs" />
+    <Compile Include="Controls\Tools\Tool.cs" />
+    <Compile Include="Controls\Tools\WarpTool.cs" />
+    <Compile Include="Core\DefaultActor.cs" />
+    <Compile Include="Core\DefaultActorBehaviour.cs" />
+    <Compile Include="Core\GameInterpreter.cs" />
+    <Compile Include="Core\IActor.cs" />
+    <Compile Include="Core\IVRManagerContext.cs" />
+    <Compile Include="Core\Logger.cs" />
+    <Compile Include="Core\PlayArea.cs" />
+    <Compile Include="Core\ProtectedBehaviour.cs" />
+    <Compile Include="Core\ScreenGrabber.cs" />
+    <Compile Include="Core\Throttler.cs" />
+    <Compile Include="Core\VRCamera.cs" />
+    <Compile Include="Core\VRGUI.cs" />
+    <Compile Include="Core\VRManager.cs" />
+    <Compile Include="Core\VRSettings.cs" />
+    <Compile Include="Helpers\Calculator.cs" />
+    <Compile Include="Helpers\CameraConsumer.cs" />
+    <Compile Include="Helpers\Capture\CapturePanorama.cs" />
+    <Compile Include="Helpers\Capture\Internals\Icosphere.cs" />
+    <Compile Include="Helpers\Capture\Internals\ImageEffectCopyCamera.cs" />
+    <Compile Include="Helpers\Capture\Internals\ReadPanoConfig.cs" />
+    <Compile Include="Helpers\Capture\Internals\ScreenFadeControl.cs" />
+    <Compile Include="Helpers\DefaultContext.cs" />
+    <Compile Include="Helpers\GameObjectExtensions.cs" />
+    <Compile Include="Helpers\GuiScaler.cs" />
+    <Compile Include="Helpers\KeyStroke.cs" />
+    <Compile Include="Helpers\LookTargetController.cs" />
+    <Compile Include="Helpers\MeshExtension.cs" />
+    <Compile Include="Helpers\MessengerExtensions.cs" />
+    <Compile Include="Helpers\Profiler.cs" />
+    <Compile Include="Helpers\RenderTextureExtensions.cs" />
+    <Compile Include="Helpers\ResourceManager.cs" />
+    <Compile Include="Helpers\RumbleSession.cs" />
+    <Compile Include="Helpers\SimpleJSON.cs" />
+    <Compile Include="Controls\IShortcut.cs" />
+    <Compile Include="Controls\KeyboardShortcut.cs" />
+    <Compile Include="Helpers\QuaternionExtensions.cs" />
+    <Compile Include="Helpers\SteamVRDetector.cs" />
+    <Compile Include="Helpers\VRCapturePanorama.cs" />
+    <Compile Include="LeapMotion\Attachments\AttachmentController.cs" />
+    <Compile Include="LeapMotion\Attachments\CameraFollower.cs" />
+    <Compile Include="LeapMotion\Attachments\HandAttachments.cs" />
+    <Compile Include="LeapMotion\Attachments\Transition.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\Detector.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\DetectorLogicGate.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\ExtendedFingerDetector.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\FingerDirectionDetector.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\PalmDirectionDetector.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\PinchDetector.cs" />
+    <Compile Include="LeapMotion\DetectionUtilities\ProximityDetector.cs" />
+    <Compile Include="LeapMotion\HandFactory.cs" />
+    <Compile Include="LeapMotion\HandPool.cs" />
+    <Compile Include="LeapMotion\HandProxy.cs" />
+    <Compile Include="LeapMotion\HandRepresentation.cs" />
+    <Compile Include="LeapMotion\Hands\CapsuleHand.cs" />
+    <Compile Include="LeapMotion\Hands\DebugHand.cs" />
+    <Compile Include="LeapMotion\Hands\FingerModel.cs" />
+    <Compile Include="LeapMotion\Hands\HandDrop.cs" />
+    <Compile Include="LeapMotion\Hands\HandEnableDisable.cs" />
+    <Compile Include="LeapMotion\Hands\HandFader.cs" />
+    <Compile Include="LeapMotion\Hands\HandModel.cs" />
+    <Compile Include="LeapMotion\Hands\HandTransitionBehavior.cs" />
+    <Compile Include="LeapMotion\Hands\IHandModel.cs" />
+    <Compile Include="LeapMotion\Hands\MinimalHand.cs" />
+    <Compile Include="LeapMotion\Hands\PolyFinger.cs" />
+    <Compile Include="LeapMotion\Hands\PolyHand.cs" />
+    <Compile Include="LeapMotion\Hands\RiggedFinger.cs" />
+    <Compile Include="LeapMotion\Hands\RiggedHand.cs" />
+    <Compile Include="LeapMotion\Hands\RigidFinger.cs" />
+    <Compile Include="LeapMotion\Hands\RigidHand.cs" />
+    <Compile Include="LeapMotion\Hands\SkeletalFinger.cs" />
+    <Compile Include="LeapMotion\Hands\SkeletalHand.cs" />
+    <Compile Include="LeapMotion\Hands\TestHandFactory.cs" />
+    <Compile Include="LeapMotion\LeapDeviceInfo.cs" />
+    <Compile Include="LeapMotion\LeapHandController.cs" />
+    <Compile Include="LeapMotion\LeapImageRetriever.cs" />
+    <Compile Include="LeapMotion\LeapProvider.cs" />
+    <Compile Include="LeapMotion\LeapServiceProvider.cs" />
+    <Compile Include="LeapMotion\Utils\DisconnectionNotice.cs" />
+    <Compile Include="LeapMotion\Utils\EnableDepthBuffer.cs" />
+    <Compile Include="LeapMotion\Utils\ExecutionOrder.cs" />
+    <Compile Include="LeapMotion\Utils\FitHeightToScreen.cs" />
+    <Compile Include="LeapMotion\Utils\FrameRateControls.cs" />
+    <Compile Include="LeapMotion\Utils\KeyEnableBehaviors.cs" />
+    <Compile Include="LeapMotion\Utils\KeyEnableGameObjects.cs" />
+    <Compile Include="LeapMotion\Utils\LeapUnityExtensions.cs" />
+    <Compile Include="LeapMotion\Utils\SceneSettings.cs" />
+    <Compile Include="LeapMotion\Utils\SmoothedFloat.cs" />
+    <Compile Include="LeapMotion\Utils\SmoothedQuaternion.cs" />
+    <Compile Include="LeapMotion\Utils\SmoothedVector3.cs" />
+    <Compile Include="LeapMotion\Utils\StretchToScreen.cs" />
+    <Compile Include="LeapMotion\Utils\Utils.cs" />
+    <Compile Include="LeapMotion\VR\EyeType.cs" />
+    <Compile Include="LeapMotion\VR\LeapVRCameraControl.cs" />
+    <Compile Include="LeapMotion\VR\LeapVRTemporalWarping.cs" />
+    <Compile Include="LeapMotion\VR\TemporalWarpingStatus.cs" />
+    <Compile Include="LeapMotion\VR\VRHeightOffset.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="U2007\SteamVR\openvr_api.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Camera.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_CameraFlip.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_CameraMask.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Controller.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_ControllerManager.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Ears.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Events.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_ExternalCamera.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Fade.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Frustum.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_GameView.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_IK.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_LoadLevel.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Menu.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Overlay.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_PlayArea.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Render.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_RenderModel.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Skybox.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_SphericalProjection.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Stats.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_TestController.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_TrackedCamera.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
+    <Compile Include="U2007\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Visuals\ArcRenderer.cs" />
+    <Compile Include="Visuals\GUIMonitor.cs" />
+    <Compile Include="Visuals\IMaterialPalette.cs" />
+    <Compile Include="Visuals\DefaultMaterialPalette.cs" />
+    <Compile Include="Visuals\PlayAreaVisualization.cs" />
+    <Compile Include="Visuals\PlayerCamera.cs" />
+    <Compile Include="Visuals\ProceduralPlane.cs" />
+    <Compile Include="Visuals\SimulatedCursor.cs" />
+    <Compile Include="Modes\ControlMode.cs" />
+    <Compile Include="Modes\SeatedMode.cs" />
+    <Compile Include="Modes\StandingMode.cs" />
+    <Compile Include="Native\MouseOperations.cs" />
+    <Compile Include="Native\WindowManager.cs" />
+    <Compile Include="Native\WindowsInterop.cs" />
+    <Compile Include="Visuals\GUIQuad.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\UnityHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="U2007\SteamVR\Textures\arrow.png" />
+    <Content Include="U2007\SteamVR\Textures\background.png" />
+    <Content Include="U2007\SteamVR\Textures\logo.png" />
+    <Content Include="U2007\SteamVR\Textures\workshop.png" />
+    <ContentWithTargetPath Include="Libs\Plugins\Images\cursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Plugins\Images\cursor.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Plugins\Images\icon_play.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Plugins\Images\icon_play.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Plugins\Images\icon_settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Plugins\Images\icon_settings.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Plugins\Images\icon_warp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Plugins\Images\icon_warp.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Plugins\x86\openvr_api.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Plugins\x86\openvr_api.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Plugins\x86_64\openvr_api.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Plugins\x86_64\openvr_api.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Managed\System.Drawing.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Managed\System.Drawing.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Managed\System.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Managed\System.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Managed\System.Xml.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Managed\System.Xml.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Managed\System.Xml.Linq.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Managed\System.Xml.Linq.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\Data\Managed\System.Configuration.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Data\Managed\System.Configuration.dll</TargetPath>
+    </ContentWithTargetPath>
+    <Content Include="Libs\Plugins\Images\icon_school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hands_5_3" />
+    <None Include="Resources\vrgin_5_0" />
+    <None Include="Resources\vrgin_5_2" />
+    <None Include="Resources\vrgin_5_3" />
+    <None Include="Resources\vrgin_5_4" />
+    <None Include="Resources\vrgin_5_5" />
+    <None Include="Resources\vrgin_5_6" />
+    <None Include="U2007\SteamVR\Prefabs\[CameraRig].prefab" />
+    <None Include="U2007\SteamVR\Prefabs\[Status].prefab" />
+    <None Include="U2007\SteamVR\Prefabs\[SteamVR].prefab" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_AlphaOut.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_Blit.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_BlitFlip.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_ClearAll.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_ColorOut.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_ExternalCamera.prefab" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_Fade.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_HiddenArea.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_Overlay.shader" />
+    <None Include="U2007\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
+    <None Include="U2007\SteamVR\Textures\overlay.renderTexture" />
+    <None Include="U2007\SteamVR\upgrading.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y $(TargetPath) "F:\Illusion\Emotion Creators\BepInEx\plugins\ECVR"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <Content Include="..\SpeechServer\$(OutputPath)SpeechServer.exe">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+  </Target>
+  -->
+</Project>
